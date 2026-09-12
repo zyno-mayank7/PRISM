@@ -38,6 +38,7 @@
     EMAIL: 'email',
     PHONE: 'phone',
     CREDIT_CARD: 'credit_card',
+    ACCOUNT_NUMBER: 'account_number',
     CVV: 'cvv',
     EXPIRY: 'expiry',
     SSN: 'ssn',
@@ -55,7 +56,7 @@
    * blur pixelates + smears beyond reconstruction (block downsample). */
   const REDACT_MODE = {
     password: 'blackout', email: 'blackout', phone: 'blackout',
-    credit_card: 'blackout', cvv: 'blackout', expiry: 'blackout',
+    credit_card: 'blackout', account_number: 'blackout', cvv: 'blackout', expiry: 'blackout',
     ssn: 'blackout', national_id: 'blackout', dob: 'blackout',
     otp: 'blackout', name: 'blackout', address: 'blackout',
     photo: 'blur', face: 'blur', sensitive: 'blackout'
@@ -64,7 +65,7 @@
   /* Token prefix used by the local vault for each class. */
   const TOKEN_PREFIX = {
     password: 'USER_PASSWORD', email: 'USER_EMAIL', phone: 'USER_PHONE',
-    credit_card: 'CARD_NUMBER', cvv: 'CVV', expiry: 'EXPIRY',
+    credit_card: 'CARD_NUMBER', account_number: 'ACCOUNT_NUMBER', cvv: 'CVV', expiry: 'EXPIRY',
     ssn: 'NATIONAL_ID', national_id: 'NATIONAL_ID', dob: 'DOB',
     otp: 'USER_OTP', name: 'USER_NAME', address: 'ADDRESS',
     sensitive: 'USER_SECRET'
@@ -78,6 +79,7 @@
     USER_EMAIL_1: 'demo.user@sih.dev',
     USER_PHONE_1: '+91 98765 43210',
     CARD_NUMBER_1: '4111 1111 1111 1111',
+    ACCOUNT_NUMBER_1: '987654321012',
     CVV_1: '123',
     EXPIRY_1: '12/28',
     USER_OTP_1: '426749',

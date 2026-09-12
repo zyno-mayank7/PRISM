@@ -81,7 +81,7 @@
     aadhaar: /\b\d{4}\s?\d{4}\s?\d{4}\b/g,
     dobIso: /\b(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b/g,
     cardCandidate: /\b(?:\d[ -]?){13,19}\b/g,   // candidates, Luhn-checked
-    token: /\[(USER_[A-Z_]+|CARD_NUMBER|CVV|EXPIRY|NATIONAL_ID|DOB)_(\d+)\]/g
+    token: /\[(USER_[A-Z_]+|CARD_NUMBER|ACCOUNT_NUMBER|CVV|EXPIRY|NATIONAL_ID|DOB)_(\d+)\]/g
   };
 
   /** Scan a text string for concrete PII (excludes vault tokens). */

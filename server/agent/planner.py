@@ -59,6 +59,7 @@ SENSITIVE_FIELD_RX = [
     (re.compile(r"\botp\b|one[\s-]?time[\s-]?(code|password)|verification\s+code|passcode", re.I), "otp"),
     (re.compile(r"\bcvv\b|\bcvc\b|\bcsc\b|security\s*code", re.I), "cvv"),
     (re.compile(r"\bssn\b|social\s*security", re.I), "ssn"),
+    (re.compile(r"account\s*(no|number|#)?|bank\s*account|\bacc(t|\.|\s*no|\s*num|\s*#)?\b", re.I), "account_number"),
     (re.compile(r"aadhaa?r|uidai|\bpan\b|passport|driver'?s?\s*licen[cs]e", re.I), "national_id"),
     (re.compile(r"date\s*of\s*birth|\bdob\b|born\s*on", re.I), "dob"),
 ]
@@ -146,6 +147,7 @@ def value_for(el: DOMElement, kind: Optional[str]) -> str:
     table = {
         "password": "[USER_PASSWORD_1]", "email": "[USER_EMAIL_1]",
         "phone": "[USER_PHONE_1]", "credit_card": "[CARD_NUMBER_1]",
+        "account_number": "[ACCOUNT_NUMBER_1]",
         "cvv": "[CVV_1]", "expiry": "[EXPIRY_1]", "otp": "[USER_OTP_1]",
         "ssn": "[NATIONAL_ID_1]", "national_id": "[NATIONAL_ID_1]",
         "dob": "[DOB_1]", "name": "[USER_NAME_1]",

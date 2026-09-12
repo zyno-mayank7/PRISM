@@ -21,6 +21,7 @@
     [/\bpin\b|passcode|\botp\b|one[\s-]?time[\s-]?(code|password)|verification\s+code|m[\s-]?code/i, 'otp', 0.92],
     [/\bcvv\b|\bcvc\b|\bcsc\b|card\s*(verification|security)\s*code|security\s*code/i, 'cvv', 0.97],
     [/\bssn\b|social\s*security(\s*number)?/i, 'ssn', 0.97],
+    [/account\s*(no|number|#)?|bank\s*account|\bacc(t|\.|\s*no|\s*num|\s*#)?\b/i, 'account_number', 0.95],
     [/aadhaa?r|uidai|\bpan\b|permanent\s*account\s*number|passport\s*(no|number|#)|driver'?s?\s*licen[cs]e/i, 'national_id', 0.95],
     [/date\s*of\s*birth|\bdob\b|\bborn\s*on\b/i, 'dob', 0.95],
     [/salary|income|annual\s*income|ctc\b/i, 'sensitive', 0.72],
