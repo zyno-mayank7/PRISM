@@ -1,0 +1,184 @@
+[
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "fullname",
+  "selector": "#fullname",
+  "label": "Full name",
+  "autocomplete": "name",
+  "value": "[USER_NAME_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 132,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "tel",
+  "id": "phone",
+  "selector": "#phone",
+  "label": "Mobile number",
+  "autocomplete": "tel",
+  "value": "[USER_PHONE_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 210,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "textarea",
+  "id": "address",
+  "selector": "#address",
+  "label": "Street address",
+  "autocomplete": "street-address",
+  "value": "[ADDRESS_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 288,
+   "width": 552,
+   "height": 58
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "city",
+  "selector": "#city",
+  "label": "City",
+  "autocomplete": "address-level2",
+  "value": "[ADDRESS_2]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 378,
+   "width": 262,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "zip",
+  "selector": "#zip",
+  "label": "PIN code",
+  "autocomplete": "postal-code",
+  "value": "[USER_OTP_1]",
+  "visible": true,
+  "rect": {
+   "x": 642,
+   "y": 378,
+   "width": 262,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "card",
+  "selector": "#card",
+  "label": "Card number",
+  "autocomplete": "cc-number",
+  "value": "[CARD_NUMBER_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 456,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "expiry",
+  "selector": "#expiry",
+  "label": "Expiry",
+  "autocomplete": "cc-exp",
+  "value": "[EXPIRY_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 534,
+   "width": 262,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "cvv",
+  "selector": "#cvv",
+  "label": "CVV",
+  "autocomplete": "cc-csc",
+  "value": "[CVV_1]",
+  "visible": true,
+  "rect": {
+   "x": 642,
+   "y": 534,
+   "width": 262,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "orderref",
+  "selector": "#orderref",
+  "label": "Order reference (for support)",
+  "value": "1234567812345678",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 612,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "button",
+  "type": "submit",
+  "id": "submit-btn",
+  "selector": "#submit-btn",
+  "text": "Place order · ₹4,999",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 690,
+   "width": 552,
+   "height": 44
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "promo-cache",
+  "selector": "#promo-cache",
+  "label": "Promo cache",
+  "value": "PROMO-2026",
+  "visible": false,
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 0,
+   "height": 0
+  },
+  "classes": []
+ }
+]

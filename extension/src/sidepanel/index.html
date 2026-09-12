@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OBA — On-device Browser Agent</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="bench-head">
+    <div class="wordmark" title="On-device Browser Agent">
+      <span class="wm-glyph">OB</span><span class="wm-redact" aria-hidden="true"></span>
+      <span class="wm-sub">on-device browser agent</span>
+    </div>
+    <div class="conn">
+      <span id="connDot" class="dot dot--down" aria-hidden="true"></span>
+      <span id="connLabel" class="conn__label">checking server…</span>
+    </div>
+  </header>
+
+  <section class="sheet settings">
+    <label class="field">
+      <span class="field__name">Reasoning server</span>
+      <input id="serverUrl" type="url" spellcheck="false" placeholder="http://127.0.0.1:8000" />
+    </label>
+    <div class="presets" role="group" aria-label="Task presets">
+      <button class="chip" data-task="Sign in to the demo portal using the demo credentials.">Sign-in page</button>
+      <button class="chip" data-task="Complete the checkout with the demo payment details.">Checkout page</button>
+      <button class="chip" data-task="Fill and submit the KYC verification form.">KYC page</button>
+    </div>
+    <label class="field">
+      <span class="field__name">Task</span>
+      <textarea id="task" rows="3" spellcheck="false" placeholder="e.g. Fill the registration form with demo credentials"></textarea>
+    </label>
+    <div class="run-row">
+      <button id="runBtn" class="btn btn--run">Run task</button>
+      <button id="stopBtn" class="btn btn--stop" disabled>Stop</button>
+      <span id="runState" class="run-state" role="status"></span>
+    </div>
+  </section>
+
+  <section class="lightbox" aria-label="Privacy inspector">
+    <div class="lightbox__pane" data-side="raw">
+      <div class="pane__head pane__head--raw">
+        <span>Raw capture</span><span class="pane__tag">stays on this device</span>
+      </div>
+      <div class="pane__screen">
+        <img id="rawImg" alt="Raw screen capture, never transmitted" />
+        <p id="rawEmpty" class="pane__empty">Run a task to see the live capture.</p>
+      </div>
+    </div>
+    <div class="lightbox__divider" aria-hidden="true"></div>
+    <div class="lightbox__pane" data-side="sanitized">
+      <div class="pane__head pane__head--san">
+        <span>Sanitized</span><span class="pane__tag">sent to the server</span>
+      </div>
+      <div class="pane__screen">
+        <img id="sanImg" alt="Redacted screenshot transmitted to the reasoning server" />
+        <canvas id="boxCanvas" aria-hidden="true"></canvas>
+        <p id="sanEmpty" class="pane__empty">Nothing has been transmitted yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <label class="toggle">
+    <input type="checkbox" id="showBoxes" checked />
+    <span>Overlay detected PII boxes on the sanitized view</span>
+  </label>
+
+  <section class="telemetry" aria-label="Telemetry">
+    <div class="tele__chips" id="teleChips">
+      <span class="chip-data is-muted">no run yet</span>
+    </div>
+    <div class="tele__meter">
+      <div class="meter__bar"><i id="latBar"></i></div>
+      <div class="meter__scale">
+        <span>0 ms</span><span id="latLabel">cycle —</span><span>3000 ms</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="log" aria-label="Action log">
+    <h2 class="log__title">Action log</h2>
+    <ol id="logList" class="log__list"></ol>
+  </section>
+
+  <footer class="bench-foot">
+    <p>Raw pixels and vault values never cross the network boundary. Transmission is blocked unless the leak assertion passes.</p>
+  </footer>
+
+  <script src="../core/constants.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

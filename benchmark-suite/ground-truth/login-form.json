@@ -1,0 +1,57 @@
+{
+  "page": "login-form",
+  "title": "Acme Cloud Console — Sign in",
+  "badge": "OBA BENCHMARK · login-form",
+  "layout": { "width": 1280, "height": 800 },
+  "elements": [
+    {
+      "tag": "input", "type": "email", "id": "email", "selector": "#email",
+      "label": "Email or username", "placeholder": "name@company.com",
+      "autocomplete": "email", "value": "demo.user@sih.dev",
+      "visible": true, "sensitive": true, "piiType": "email", "mode": "blackout",
+      "rect": { "x": 364, "y": 172, "width": 552, "height": 30 }
+    },
+    {
+      "tag": "input", "type": "password", "id": "password", "selector": "#password",
+      "label": "Password", "autocomplete": "current-password",
+      "value": "Sih@2026#Demo",
+      "visible": true, "sensitive": true, "piiType": "password", "mode": "blackout",
+      "rect": { "x": 364, "y": 250, "width": 552, "height": 30 }
+    },
+    {
+      "tag": "input", "type": "text", "id": "otp", "selector": "#otp",
+      "label": "OTP code", "autocomplete": "one-time-code", "value": "",
+      "visible": true, "sensitive": true, "piiType": "otp", "mode": "blackout",
+      "hint": "Demo OTP: 426749",
+      "rect": { "x": 364, "y": 328, "width": 552, "height": 30 }
+    },
+    {
+      "tag": "span", "render": "captcha", "id": "captchaText", "selector": "#captchaText",
+      "text": "A7X3", "visible": true, "sensitive": false,
+      "rect": { "x": 364, "y": 406, "width": 130, "height": 30 }
+    },
+    {
+      "tag": "input", "type": "text", "id": "captcha", "selector": "#captcha",
+      "label": "Captcha code", "autocomplete": "off", "value": "",
+      "visible": true, "sensitive": false,
+      "rect": { "x": 510, "y": 406, "width": 406, "height": 30 }
+    },
+    {
+      "tag": "input", "type": "checkbox", "id": "remember", "selector": "#remember",
+      "label": "Keep me signed in on this device", "value": null,
+      "visible": true, "sensitive": false,
+      "rect": { "x": 364, "y": 476, "width": 18, "height": 18 }
+    },
+    {
+      "tag": "button", "type": "submit", "id": "submit-btn", "selector": "#submit-btn",
+      "text": "Sign in", "visible": true, "sensitive": false,
+      "rect": { "x": 364, "y": 526, "width": 552, "height": 44 }
+    },
+    {
+      "tag": "input", "type": "text", "id": "internal-ref", "selector": "#internal-ref",
+      "label": "Internal ref", "value": "X-9917",
+      "visible": false, "sensitive": false,
+      "rect": { "x": 0, "y": 0, "width": 0, "height": 0 }
+    }
+  ]
+}

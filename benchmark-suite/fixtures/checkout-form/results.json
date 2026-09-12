@@ -1,0 +1,283 @@
+{
+ "page": "checkout-form",
+ "iterations": 10,
+ "layout": {
+  "width": 1280,
+  "height": 800
+ },
+ "domContext": [
+  {
+   "tag": "input",
+   "selector": "#fullname",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#phone",
+   "type": "tel"
+  },
+  {
+   "tag": "textarea",
+   "selector": "#address",
+   "type": null
+  },
+  {
+   "tag": "input",
+   "selector": "#city",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#zip",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#card",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#expiry",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#cvv",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#orderref",
+   "type": "text"
+  },
+  {
+   "tag": "button",
+   "selector": "#submit-btn",
+   "type": "submit"
+  }
+ ],
+ "detections": [
+  {
+   "box": {
+    "x": 364,
+    "y": 132,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "name",
+   "mode": "blackout",
+   "confidence": 0.8,
+   "source": "dom",
+   "selector": "#fullname"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 210,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "phone",
+   "mode": "blackout",
+   "confidence": 0.93,
+   "source": "dom",
+   "selector": "#phone"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 288,
+    "width": 552,
+    "height": 58
+   },
+   "piiType": "address",
+   "mode": "blackout",
+   "confidence": 0.78,
+   "source": "dom",
+   "selector": "#address"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 378,
+    "width": 262,
+    "height": 30
+   },
+   "piiType": "address",
+   "mode": "blackout",
+   "confidence": 0.78,
+   "source": "dom",
+   "selector": "#city"
+  },
+  {
+   "box": {
+    "x": 642,
+    "y": 378,
+    "width": 262,
+    "height": 30
+   },
+   "piiType": "otp",
+   "mode": "blackout",
+   "confidence": 0.92,
+   "source": "dom",
+   "selector": "#zip"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 456,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "credit_card",
+   "mode": "blackout",
+   "confidence": 0.97,
+   "source": "dom",
+   "selector": "#card"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 534,
+    "width": 262,
+    "height": 30
+   },
+   "piiType": "expiry",
+   "mode": "blackout",
+   "confidence": 0.97,
+   "source": "dom",
+   "selector": "#expiry"
+  },
+  {
+   "box": {
+    "x": 642,
+    "y": 534,
+    "width": 262,
+    "height": 30
+   },
+   "piiType": "cvv",
+   "mode": "blackout",
+   "confidence": 0.97,
+   "source": "dom",
+   "selector": "#cvv"
+  }
+ ],
+ "appliedBoxes": [
+  {
+   "box": {
+    "x": 360,
+    "y": 128,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "name"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 206,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "phone"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 284,
+    "width": 560,
+    "height": 66
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "address"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 374,
+    "width": 270,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "address"
+  },
+  {
+   "box": {
+    "x": 638,
+    "y": 374,
+    "width": 270,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "otp"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 452,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "credit_card"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 530,
+    "width": 270,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "expiry"
+  },
+  {
+   "box": {
+    "x": 638,
+    "y": 530,
+    "width": 270,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "cvv"
+  }
+ ],
+ "verification": {
+  "ok": true,
+  "checked": 8,
+  "failures": []
+ },
+ "redactionStats": {
+  "blackoutCount": 8,
+  "blurCount": 0,
+  "latencyMs": 0.43
+ },
+ "timings": {
+  "domMs": 0.33,
+  "visionMs": 2.12,
+  "redactMs": 0.45,
+  "verifyMs": 0.28,
+  "inferenceMs": 2.45
+ },
+ "heap": {
+  "heapUsedMB": 5,
+  "heapDeltaMB": 0.6
+ },
+ "leak": {
+  "vaultValuesOk": true,
+  "leaks": [],
+  "gtRawValuesBlocked": true,
+  "tokens": 8
+ }
+}

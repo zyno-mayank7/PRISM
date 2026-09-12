@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Acme Cloud Console — Sign in</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <span class="brand"><span class="logo" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)"></span>Acme Cloud Console</span>
+    <span class="bench-flag">OBA BENCHMARK · login-form</span>
+  </div>
+
+  <main>
+    <h1>Sign in to your workspace</h1>
+    <p class="sub">Use your corporate credentials. Contact IT for password resets.</p>
+
+    <form class="card" id="loginForm" novalidate>
+      <div class="row">
+        <label for="email">Email or username</label>
+        <input id="email" name="email" type="email" autocomplete="email"
+               placeholder="name@company.com" />
+      </div>
+
+      <div class="row">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password"
+               autocomplete="current-password" placeholder="••••••••••" />
+      </div>
+
+      <div class="row">
+        <label for="otp">OTP code</label>
+        <input id="otp" name="otp" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="one-time-code" placeholder="6-digit code" />
+        <p class="hint">Demo OTP: <code>426749</code> (shown for the evaluation harness)</p>
+      </div>
+
+      <div class="row">
+        <label for="captcha">Captcha code</label>
+        <div class="captcha-wrap">
+          <span class="captcha-code" id="captchaText">A7X3</span>
+          <input id="captcha" name="captcha" type="text" style="flex:1"
+                 autocomplete="off" placeholder="Type the code above" />
+        </div>
+      </div>
+
+      <div class="row check">
+        <input id="remember" name="remember" type="checkbox" />
+        <label for="remember" style="font-weight:400;margin:0">Keep me signed in on this device</label>
+      </div>
+
+      <button class="btn" id="submit-btn" type="submit">Sign in</button>
+
+      <div class="result" id="result"></div>
+
+      <div class="demo-creds">
+        Demo credentials for the harness — <b>email</b> <code>demo.user@sih.dev</code>,
+        <b>password</b> <code>Sih@2026#Demo</code>, <b>OTP</b> <code>426749</code>,
+        <b>captcha</b> <code>A7X3</code>.
+      </div>
+    </form>
+  </main>
+
+  <footer>Synthetic benchmark page — every value on it is fake. Served by <code>benchmark-suite/</code>.</footer>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var out = document.getElementById('result');
+      out.className = 'result';
+      var errors = [];
+      var email = document.getElementById('email').value.trim();
+      var pwd = document.getElementById('password').value;
+      var otp = document.getElementById('otp').value.trim();
+      var cap = document.getElementById('captcha').value.trim();
+
+      if (email !== 'demo.user@sih.dev') errors.push('Email does not match the demo account.');
+      if (pwd !== 'Sih@2026#Demo') errors.push('Password is incorrect.');
+      if (!/^\d{6}$/.test(otp)) errors.push('OTP must be 6 digits.');
+      else if (otp !== '426749') errors.push('OTP is incorrect.');
+      if (cap !== 'A7X3') errors.push('Captcha does not match.');
+
+      if (errors.length) {
+        out.className = 'result result--err';
+        out.innerHTML = '<b>Sign-in failed</b><ul>' + errors.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
+        return;
+      }
+      out.className = 'result result--ok';
+      out.innerHTML = '<b>Login successful</b> — welcome, Demo User. Nothing sensitive left this device.';
+    });
+  </script>
+</body>
+</html>

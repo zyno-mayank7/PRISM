@@ -1,0 +1,164 @@
+[
+ {
+  "tag": "img",
+  "isImg": true,
+  "id": "photo",
+  "selector": ".profile-photo",
+  "alt": "Applicant photo",
+  "imgHints": "photo profile-photo avatar",
+  "value": null,
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 134,
+   "width": 160,
+   "height": 160
+  },
+  "classes": [
+   "profile-photo"
+  ]
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "fullname",
+  "selector": "#fullname",
+  "label": "Full name (as per ID)",
+  "autocomplete": "name",
+  "value": "[USER_NAME_1]",
+  "visible": true,
+  "rect": {
+   "x": 556,
+   "y": 132,
+   "width": 360,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "date",
+  "id": "dob",
+  "selector": "#dob",
+  "label": "Date of birth",
+  "value": "[DOB_1]",
+  "visible": true,
+  "rect": {
+   "x": 556,
+   "y": 210,
+   "width": 360,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "select",
+  "id": "idtype",
+  "selector": "#idtype",
+  "label": "ID document type",
+  "value": "Aadhaar",
+  "visible": true,
+  "rect": {
+   "x": 556,
+   "y": 288,
+   "width": 360,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "idnum",
+  "selector": "#idnum",
+  "label": "Government ID number",
+  "value": "[NATIONAL_ID_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 352,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "textarea",
+  "id": "address",
+  "selector": "#address",
+  "label": "Residential address",
+  "autocomplete": "street-address",
+  "value": "[ADDRESS_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 430,
+   "width": 552,
+   "height": 58
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "income",
+  "selector": "#income",
+  "label": "Annual income (optional)",
+  "value": "[USER_SECRET_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 532,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "checkbox",
+  "id": "consent",
+  "selector": "#consent",
+  "label": "I confirm the photo and details above are mine",
+  "value": null,
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 590,
+   "width": 18,
+   "height": 18
+  },
+  "classes": []
+ },
+ {
+  "tag": "button",
+  "type": "submit",
+  "id": "submit-btn",
+  "selector": "#submit-btn",
+  "text": "Submit for verification",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 640,
+   "width": 552,
+   "height": 44
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "audit-ref",
+  "selector": "#audit-ref",
+  "label": "Audit ref",
+  "value": "BV-0091",
+  "visible": false,
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 0,
+   "height": 0
+  },
+  "classes": []
+ }
+]

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OBA — evaluation bench</title>
+  <style>
+    /* audit-bench family: shared with the extension sidepanel.
+       amber = private, teal = cleared for transmission. */
+    :root {
+      --paper: #f5f3ee; --raise: #fff; --hair: #d9d3c6;
+      --ink: #23272c; --soft: #5c6168; --faint: #8b9096;
+      --amber: #b45309; --amber-line: #f59e0b;
+      --teal: #0f766e; --teal-line: #14b8a6;
+      --dark: #1a1e23;
+      --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+      --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 14px/1.6 var(--sans); }
+    header { padding: 34px 28px 26px; border-bottom: 1px solid var(--hair); }
+    .wordmark { display: flex; align-items: baseline; gap: 8px; }
+    .wm-glyph { font: 700 22px/1 var(--sans); letter-spacing: -.03em; }
+    .wm-redact { width: 17px; height: 17px; background: var(--ink); border-radius: 2px; display: inline-block; transform: translateY(1px); }
+    .wm-sub { font: 400 12px/1 var(--sans); color: var(--faint); }
+    h1 { font: 700 24px/1.25 var(--sans); margin: 18px 0 6px; letter-spacing: -.01em; }
+    .lede { max-width: 620px; color: var(--soft); margin: 0; }
+    main { max-width: 980px; margin: 0 auto; padding: 30px 28px 70px; }
+    h2 { font: 600 13px/1 var(--sans); color: var(--soft); letter-spacing: .01em; margin: 34px 0 14px; }
+    .pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+    a.page {
+      display: block; background: var(--raise); border: 1px solid var(--hair);
+      border-radius: 8px; padding: 16px 18px; text-decoration: none; color: var(--ink);
+    }
+    a.page:hover { border-color: var(--faint); }
+    .page .k { font: 600 11px/1 var(--mono); color: var(--amber); }
+    .page .n { font: 600 16px/1.4 var(--sans); margin: 6px 0 4px; }
+    .page .d { font: 400 12.5px/1.5 var(--sans); color: var(--soft); }
+    table { border-collapse: collapse; width: 100%; background: var(--raise); border: 1px solid var(--hair); border-radius: 8px; overflow: hidden; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--hair); font-size: 13px; }
+    th { font: 600 11px/1 var(--sans); color: var(--soft); background: #fbfaf7; }
+    td.w { font: 600 12px/1 var(--mono); color: var(--teal); }
+    pre {
+      background: var(--dark); color: #dbe3ec; border-radius: 8px;
+      padding: 14px 16px; font: 400 12.5px/1.7 var(--mono); overflow-x: auto;
+    }
+    pre .c { color: #59616b; }
+    .note { font-size: 12.5px; color: var(--soft); max-width: 640px; }
+    footer { border-top: 1px solid var(--hair); padding: 18px 28px; color: var(--faint); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wordmark">
+      <span class="wm-glyph">OB</span><span class="wm-redact" aria-hidden="true"></span>
+      <span class="wm-sub">on-device browser agent · evaluation bench</span>
+    </div>
+    <h1>Three synthetic targets, five scored metrics, zero real PII</h1>
+    <p class="lede">Open a demo page, run the agent from the extension sidepanel, and watch the
+    twin lightbox show what stays on your device versus what the reasoning server receives.
+    The evaluator replays the same perception code offline for reproducible scores.</p>
+  </header>
+
+  <main>
+    <h2>Demo targets</h2>
+    <div class="pages">
+      <a class="page" href="demo-pages/login-form.html">
+        <div class="k">login-form</div>
+        <div class="n">Acme Cloud sign-in</div>
+        <div class="d">Email, password, OTP, captcha. Tests credential redaction and the token round-trip.</div>
+      </a>
+      <a class="page" href="demo-pages/checkout-form.html">
+        <div class="k">checkout-form</div>
+        <div class="n">Lumen Store checkout</div>
+        <div class="d">Phone, address, card, CVV. Includes a Luhn-invalid order number as a precision decoy.</div>
+      </a>
+      <a class="page" href="demo-pages/kyc-portal.html">
+        <div class="k">kyc-portal</div>
+        <div class="n">BharatVerify KYC</div>
+        <div class="d">Synthetic applicant photo, DOB, Aadhaar-style ID. Exercises the vision tier and blur redaction.</div>
+      </a>
+    </div>
+
+    <h2>Run the evaluation</h2>
+    <pre><span class="c"># 1. reasoning server (any terminal)</span>
+cd server &amp;&amp; pip install -r requirements.txt
+uvicorn main:app --host 127.0.0.1 --port 8000
+
+<span class="c"># 2. demo pages (this directory)</span>
+python3 serve.py            <span class="c"># http://127.0.0.1:8080</span>
+
+<span class="c"># 3. extension: chrome://extensions → Load unpacked → extension/</span>
+
+<span class="c"># 4. automated scoring (offline, deterministic)</span>
+python3 evaluator.py</pre>
+
+    <h2>Competition metrics</h2>
+    <table>
+      <tr><th>Metric</th><th>Weight</th><th>Measured as</th></tr>
+      <tr><td>Accuracy of visual context</td><td class="w">25%</td><td>F1 of perceived interactive elements vs ground truth (selector-level; hidden decoys must be dropped)</td></tr>
+      <tr><td>PII detection recall &amp; precision</td><td class="w">20%</td><td>TP/FP/FN over sensitive fields + face regions; vision boxes matched at IoU ≥ 0.3</td></tr>
+      <tr><td>Precision of redaction</td><td class="w">20%</td><td>Mean IoU of applied boxes, full coverage of sensitive regions, over-mask penalty — hard-gated on irreversibility verification</td></tr>
+      <tr><td>Client resource utilization</td><td class="w">20%</td><td>JS heap (MB) + perception latency (ms) while executing the real extension modules in Node</td></tr>
+      <tr><td>End-to-end latency</td><td class="w">15%</td><td>Perception + redaction + server round-trip per cycle; live numbers also shown in the sidepanel telemetry bar</td></tr>
+    </table>
+
+    <h2>What never leaves the device</h2>
+    <p class="note">Raw screenshots, element values behind tokens, vault contents, and the raw pane of
+    the inspector are extension-process-local. The outbound payload is re-scanned by a leak assertion
+    before every request — if any raw value or PII-shaped string survives, transmission is blocked
+    and the step aborts.</p>
+  </main>
+
+  <footer>Synthetic evaluation environment — every datum on these pages is fabricated.</footer>
+</body>
+</html>

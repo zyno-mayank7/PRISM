@@ -1,0 +1,117 @@
+[
+ {
+  "tag": "input",
+  "type": "email",
+  "id": "email",
+  "selector": "#email",
+  "label": "Email or username",
+  "autocomplete": "email",
+  "value": "[USER_EMAIL_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 172,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "password",
+  "id": "password",
+  "selector": "#password",
+  "label": "Password",
+  "autocomplete": "current-password",
+  "value": "[USER_PASSWORD_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 250,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "otp",
+  "selector": "#otp",
+  "label": "OTP code",
+  "autocomplete": "one-time-code",
+  "value": "[USER_OTP_1]",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 328,
+   "width": 552,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "captcha",
+  "selector": "#captcha",
+  "label": "Captcha code",
+  "autocomplete": "off",
+  "value": "",
+  "visible": true,
+  "rect": {
+   "x": 510,
+   "y": 406,
+   "width": 406,
+   "height": 30
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "checkbox",
+  "id": "remember",
+  "selector": "#remember",
+  "label": "Keep me signed in on this device",
+  "value": null,
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 476,
+   "width": 18,
+   "height": 18
+  },
+  "classes": []
+ },
+ {
+  "tag": "button",
+  "type": "submit",
+  "id": "submit-btn",
+  "selector": "#submit-btn",
+  "text": "Sign in",
+  "visible": true,
+  "rect": {
+   "x": 364,
+   "y": 526,
+   "width": 552,
+   "height": 44
+  },
+  "classes": []
+ },
+ {
+  "tag": "input",
+  "type": "text",
+  "id": "internal-ref",
+  "selector": "#internal-ref",
+  "label": "Internal ref",
+  "value": "X-9917",
+  "visible": false,
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 0,
+   "height": 0
+  },
+  "classes": []
+ }
+]

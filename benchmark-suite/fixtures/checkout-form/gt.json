@@ -1,0 +1,210 @@
+{
+ "page": "checkout-form",
+ "title": "Lumen Store \u2014 Secure checkout",
+ "badge": "OBA BENCHMARK \u00b7 checkout-form",
+ "layout": {
+  "width": 1280,
+  "height": 800
+ },
+ "elements": [
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "fullname",
+   "selector": "#fullname",
+   "label": "Full name",
+   "autocomplete": "name",
+   "value": "Aarav Sharma",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "name",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 132,
+    "width": 552,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "tel",
+   "id": "phone",
+   "selector": "#phone",
+   "label": "Mobile number",
+   "autocomplete": "tel",
+   "value": "+91 98765 43210",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "phone",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 210,
+    "width": 552,
+    "height": 30
+   }
+  },
+  {
+   "tag": "textarea",
+   "id": "address",
+   "selector": "#address",
+   "label": "Street address",
+   "autocomplete": "street-address",
+   "value": "221B Hill Road, Bandra West",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "address",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 288,
+    "width": 552,
+    "height": 58
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "city",
+   "selector": "#city",
+   "label": "City",
+   "autocomplete": "address-level2",
+   "value": "Mumbai",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "address",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 378,
+    "width": 262,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "zip",
+   "selector": "#zip",
+   "label": "PIN code",
+   "autocomplete": "postal-code",
+   "value": "400001",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "address",
+   "mode": "blackout",
+   "rect": {
+    "x": 642,
+    "y": 378,
+    "width": 262,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "card",
+   "selector": "#card",
+   "label": "Card number",
+   "autocomplete": "cc-number",
+   "value": "4111 1111 1111 1111",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "credit_card",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 456,
+    "width": 552,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "expiry",
+   "selector": "#expiry",
+   "label": "Expiry",
+   "autocomplete": "cc-exp",
+   "value": "12/28",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "expiry",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 534,
+    "width": 262,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "cvv",
+   "selector": "#cvv",
+   "label": "CVV",
+   "autocomplete": "cc-csc",
+   "value": "123",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "cvv",
+   "mode": "blackout",
+   "rect": {
+    "x": 642,
+    "y": 534,
+    "width": 262,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "orderref",
+   "selector": "#orderref",
+   "label": "Order reference (for support)",
+   "value": "1234567812345678",
+   "hint": "A 16-digit reference \u2014 not a card number (fails the Luhn check).",
+   "visible": true,
+   "sensitive": false,
+   "rect": {
+    "x": 364,
+    "y": 612,
+    "width": 552,
+    "height": 30
+   }
+  },
+  {
+   "tag": "button",
+   "type": "submit",
+   "id": "submit-btn",
+   "selector": "#submit-btn",
+   "text": "Place order \u00b7 \u20b94,999",
+   "visible": true,
+   "sensitive": false,
+   "rect": {
+    "x": 364,
+    "y": 690,
+    "width": 552,
+    "height": 44
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "promo-cache",
+   "selector": "#promo-cache",
+   "label": "Promo cache",
+   "value": "PROMO-2026",
+   "visible": false,
+   "sensitive": false,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+   }
+  }
+ ]
+}

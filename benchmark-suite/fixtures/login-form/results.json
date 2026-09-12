@@ -1,0 +1,143 @@
+{
+ "page": "login-form",
+ "iterations": 10,
+ "layout": {
+  "width": 1280,
+  "height": 800
+ },
+ "domContext": [
+  {
+   "tag": "input",
+   "selector": "#email",
+   "type": "email"
+  },
+  {
+   "tag": "input",
+   "selector": "#password",
+   "type": "password"
+  },
+  {
+   "tag": "input",
+   "selector": "#otp",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#captcha",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#remember",
+   "type": "checkbox"
+  },
+  {
+   "tag": "button",
+   "selector": "#submit-btn",
+   "type": "submit"
+  }
+ ],
+ "detections": [
+  {
+   "box": {
+    "x": 364,
+    "y": 172,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "email",
+   "mode": "blackout",
+   "confidence": 0.95,
+   "source": "dom",
+   "selector": "#email"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 250,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "password",
+   "mode": "blackout",
+   "confidence": 0.99,
+   "source": "dom",
+   "selector": "#password"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 328,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "otp",
+   "mode": "blackout",
+   "confidence": 0.95,
+   "source": "dom",
+   "selector": "#otp"
+  }
+ ],
+ "appliedBoxes": [
+  {
+   "box": {
+    "x": 360,
+    "y": 168,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "email"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 246,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "password"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 324,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "otp"
+  }
+ ],
+ "verification": {
+  "ok": true,
+  "checked": 3,
+  "failures": []
+ },
+ "redactionStats": {
+  "blackoutCount": 3,
+  "blurCount": 0,
+  "latencyMs": 0.12
+ },
+ "timings": {
+  "domMs": 0.3,
+  "visionMs": 1.95,
+  "redactMs": 0.29,
+  "verifyMs": 0.25,
+  "inferenceMs": 2.25
+ },
+ "heap": {
+  "heapUsedMB": 4.8,
+  "heapDeltaMB": 0.5
+ },
+ "leak": {
+  "vaultValuesOk": true,
+  "leaks": [],
+  "gtRawValuesBlocked": true,
+  "tokens": 3
+ }
+}

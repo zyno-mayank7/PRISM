@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lumen Store — Secure checkout</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <span class="brand"><span class="logo" style="background:linear-gradient(135deg,#10b981,#047857)"></span>Lumen Store</span>
+    <span class="bench-flag">OBA BENCHMARK · checkout-form</span>
+  </div>
+
+  <main>
+    <h1>Secure checkout</h1>
+    <p class="sub">Aurora Desk Lamp — matte black · order <b>LN-77419</b> · ₹4,999</p>
+
+    <form class="card" id="payForm" novalidate>
+      <div class="row">
+        <label for="fullname">Full name</label>
+        <input id="fullname" name="fullname" type="text" autocomplete="name"
+               placeholder="Name on the card" />
+      </div>
+
+      <div class="row">
+        <label for="phone">Mobile number</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel"
+               placeholder="+91 98765 43210" />
+      </div>
+
+      <div class="row">
+        <label for="address">Street address</label>
+        <textarea id="address" name="address" rows="2" autocomplete="street-address"
+                  placeholder="House, street, landmark"></textarea>
+      </div>
+
+      <div class="two-col row">
+        <div>
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" autocomplete="address-level2" />
+        </div>
+        <div>
+          <label for="zip">PIN code</label>
+          <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" />
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="card">Card number</label>
+        <input id="card" name="card" type="text" inputmode="numeric"
+               autocomplete="cc-number" placeholder="4111 1111 1111 1111" />
+      </div>
+
+      <div class="two-col row">
+        <div>
+          <label for="expiry">Expiry</label>
+          <input id="expiry" name="expiry" type="text" autocomplete="cc-exp"
+                 placeholder="MM/YY" />
+        </div>
+        <div>
+          <label for="cvv">CVV</label>
+          <input id="cvv" name="cvv" type="text" inputmode="numeric"
+                 autocomplete="cc-csc" maxlength="4" placeholder="123" />
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="orderref">Order reference (for support)</label>
+        <input id="orderref" name="orderref" type="text" value="1234567812345678"
+               readonly />
+        <p class="hint">A 16-digit reference — not a card number (fails the Luhn check).</p>
+      </div>
+
+      <button class="btn" id="submit-btn" type="submit">Place order · ₹4,999</button>
+
+      <div class="result" id="result"></div>
+
+      <div class="demo-creds">
+        Demo payment data — <b>name</b> <code>Aarav Sharma</code>, <b>phone</b>
+        <code>+91 98765 43210</code>, <b>card</b> <code>4111 1111 1111 1111</code>,
+        <b>expiry</b> <code>12/28</code>, <b>CVV</b> <code>123</code>.
+      </div>
+    </form>
+  </main>
+
+  <footer>Synthetic benchmark page — every value on it is fake. Served by <code>benchmark-suite/</code>.</footer>
+
+  <script>
+    function luhn(s) {
+      s = s.replace(/[ -]/g, '');
+      if (!/^\d{12,19}$/.test(s)) return false;
+      var sum = 0, alt = false;
+      for (var i = s.length - 1; i >= 0; i--) {
+        var d = +s[i];
+        if (alt) { d *= 2; if (d > 9) d -= 9; }
+        sum += d; alt = !alt;
+      }
+      return sum % 10 === 0;
+    }
+    document.getElementById('payForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var out = document.getElementById('result');
+      out.className = 'result';
+      var errors = [];
+      if (!document.getElementById('fullname').value.trim()) errors.push('Full name is required.');
+      if (!/^\+?\d[\d -]{8,14}$/.test(document.getElementById('phone').value.trim())) errors.push('Mobile number looks invalid.');
+      if (!luhn(document.getElementById('card').value)) errors.push('Card number failed the Luhn check.');
+      if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(document.getElementById('expiry').value.trim())) errors.push('Expiry must be MM/YY.');
+      if (!/^\d{3,4}$/.test(document.getElementById('cvv').value.trim())) errors.push('CVV must be 3–4 digits.');
+      if (!document.getElementById('address').value.trim()) errors.push('Street address is required.');
+
+      if (errors.length) {
+        out.className = 'result result--err';
+        out.innerHTML = '<b>Payment declined</b><ul>' + errors.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
+        return;
+      }
+      out.className = 'result result--ok';
+      out.innerHTML = '<b>Order placed</b> — LN-77419 confirmed. Delivery in 3–5 days.';
+    });
+  </script>
+</body>
+</html>

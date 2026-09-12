@@ -1,0 +1,238 @@
+{
+ "page": "kyc-portal",
+ "iterations": 10,
+ "layout": {
+  "width": 1280,
+  "height": 800
+ },
+ "domContext": [
+  {
+   "tag": "input",
+   "selector": "#fullname",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#dob",
+   "type": "date"
+  },
+  {
+   "tag": "select",
+   "selector": "#idtype",
+   "type": null
+  },
+  {
+   "tag": "input",
+   "selector": "#idnum",
+   "type": "text"
+  },
+  {
+   "tag": "textarea",
+   "selector": "#address",
+   "type": null
+  },
+  {
+   "tag": "input",
+   "selector": "#income",
+   "type": "text"
+  },
+  {
+   "tag": "input",
+   "selector": "#consent",
+   "type": "checkbox"
+  },
+  {
+   "tag": "button",
+   "selector": "#submit-btn",
+   "type": "submit"
+  }
+ ],
+ "detections": [
+  {
+   "box": {
+    "x": 364,
+    "y": 134,
+    "width": 160,
+    "height": 160
+   },
+   "piiType": "photo",
+   "mode": "blur",
+   "confidence": 0.8,
+   "source": "dom",
+   "selector": ".profile-photo"
+  },
+  {
+   "box": {
+    "x": 556,
+    "y": 132,
+    "width": 360,
+    "height": 30
+   },
+   "piiType": "name",
+   "mode": "blackout",
+   "confidence": 0.8,
+   "source": "dom",
+   "selector": "#fullname"
+  },
+  {
+   "box": {
+    "x": 556,
+    "y": 210,
+    "width": 360,
+    "height": 30
+   },
+   "piiType": "dob",
+   "mode": "blackout",
+   "confidence": 0.93,
+   "source": "dom",
+   "selector": "#dob"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 352,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "national_id",
+   "mode": "blackout",
+   "confidence": 0.88,
+   "source": "dom",
+   "selector": "#idnum"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 430,
+    "width": 552,
+    "height": 58
+   },
+   "piiType": "address",
+   "mode": "blackout",
+   "confidence": 0.78,
+   "source": "dom",
+   "selector": "#address"
+  },
+  {
+   "box": {
+    "x": 364,
+    "y": 532,
+    "width": 552,
+    "height": 30
+   },
+   "piiType": "sensitive",
+   "mode": "blackout",
+   "confidence": 0.72,
+   "source": "dom",
+   "selector": "#income"
+  },
+  {
+   "box": {
+    "x": 388,
+    "y": 132,
+    "width": 112,
+    "height": 124
+   },
+   "piiType": "face",
+   "mode": "blur",
+   "confidence": 0.81,
+   "source": "vision",
+   "selector": null
+  }
+ ],
+ "appliedBoxes": [
+  {
+   "box": {
+    "x": 360,
+    "y": 128,
+    "width": 168,
+    "height": 170
+   },
+   "mode": "blur",
+   "block": 28,
+   "piiType": "face"
+  },
+  {
+   "box": {
+    "x": 552,
+    "y": 128,
+    "width": 368,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "name"
+  },
+  {
+   "box": {
+    "x": 552,
+    "y": 206,
+    "width": 368,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "dob"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 348,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "national_id"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 426,
+    "width": 560,
+    "height": 66
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "address"
+  },
+  {
+   "box": {
+    "x": 360,
+    "y": 528,
+    "width": 560,
+    "height": 38
+   },
+   "mode": "blackout",
+   "block": null,
+   "piiType": "sensitive"
+  }
+ ],
+ "verification": {
+  "ok": true,
+  "checked": 6,
+  "failures": []
+ },
+ "redactionStats": {
+  "blackoutCount": 5,
+  "blurCount": 1,
+  "latencyMs": 4.57
+ },
+ "timings": {
+  "domMs": 0.34,
+  "visionMs": 1.98,
+  "redactMs": 7.11,
+  "verifyMs": 0.26,
+  "inferenceMs": 2.32
+ },
+ "heap": {
+  "heapUsedMB": 5.7,
+  "heapDeltaMB": 1.4
+ },
+ "leak": {
+  "vaultValuesOk": true,
+  "leaks": [],
+  "gtRawValuesBlocked": true,
+  "tokens": 5
+ }
+}

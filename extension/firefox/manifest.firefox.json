@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "OBA — On-device Visual Perception Browser Agent",
+  "short_name": "OBA Agent",
+  "version": "1.0.0",
+  "description": "Privacy-preserving browser agent: on-device PII perception, irreversible pixel redaction, tokenized DOM context, server-side reasoning.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "oba-agent@sih.dev",
+      "strict_min_version": "115.0"
+    }
+  },
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*", "<all_urls>"],
+  "background": {
+    "scripts": [
+      "src/core/constants.js",
+      "src/core/util.js",
+      "src/perception/dom-detector.js",
+      "src/perception/vision-detector.js",
+      "src/redaction/canvas-redactor.js",
+      "src/redaction/vault.js",
+      "src/background/service-worker.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "file://*/*"],
+      "js": [
+        "src/core/constants.js",
+        "src/core/util.js",
+        "src/perception/dom-detector.js",
+        "src/content/serializer.js",
+        "src/executor/action-executor.js",
+        "src/content/content-script.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "sidebar_action": {
+    "default_title": "OBA agent",
+    "default_panel": "src/sidepanel/index.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "action": {
+    "default_title": "Open the OBA agent sidebar"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/*", "vendor/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

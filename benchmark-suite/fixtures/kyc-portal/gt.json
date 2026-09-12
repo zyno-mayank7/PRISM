@@ -1,0 +1,198 @@
+{
+ "page": "kyc-portal",
+ "title": "BharatVerify \u2014 KYC verification",
+ "badge": "OBA BENCHMARK \u00b7 kyc-portal",
+ "layout": {
+  "width": 1280,
+  "height": 800
+ },
+ "elements": [
+  {
+   "tag": "img",
+   "isImg": true,
+   "id": "photo",
+   "selector": ".profile-photo",
+   "classes": [
+    "profile-photo"
+   ],
+   "alt": "Applicant photo",
+   "imgHints": "photo profile-photo avatar",
+   "value": null,
+   "visible": true,
+   "sensitive": true,
+   "piiType": "photo",
+   "mode": "blur",
+   "rect": {
+    "x": 364,
+    "y": 134,
+    "width": 160,
+    "height": 160
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "fullname",
+   "selector": "#fullname",
+   "label": "Full name (as per ID)",
+   "autocomplete": "name",
+   "value": "Aarav Sharma",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "name",
+   "mode": "blackout",
+   "rect": {
+    "x": 556,
+    "y": 132,
+    "width": 360,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "date",
+   "id": "dob",
+   "selector": "#dob",
+   "label": "Date of birth",
+   "value": "1996-04-17",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "dob",
+   "mode": "blackout",
+   "rect": {
+    "x": 556,
+    "y": 210,
+    "width": 360,
+    "height": 30
+   }
+  },
+  {
+   "tag": "select",
+   "id": "idtype",
+   "selector": "#idtype",
+   "label": "ID document type",
+   "value": "Aadhaar",
+   "visible": true,
+   "sensitive": false,
+   "rect": {
+    "x": 556,
+    "y": 288,
+    "width": 360,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "idnum",
+   "selector": "#idnum",
+   "label": "Government ID number",
+   "value": "2345 6789 0123",
+   "hint": "Aadhaar is a 12-digit number; SSN is 9 digits (XXX-XX-XXXX).",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "national_id",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 352,
+    "width": 552,
+    "height": 30
+   }
+  },
+  {
+   "tag": "textarea",
+   "id": "address",
+   "selector": "#address",
+   "label": "Residential address",
+   "autocomplete": "street-address",
+   "value": "221B Hill Road, Mumbai 400050",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "address",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 430,
+    "width": 552,
+    "height": 58
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "income",
+   "selector": "#income",
+   "label": "Annual income (optional)",
+   "value": "1200000",
+   "visible": true,
+   "sensitive": true,
+   "piiType": "sensitive",
+   "mode": "blackout",
+   "rect": {
+    "x": 364,
+    "y": 532,
+    "width": 552,
+    "height": 30
+   }
+  },
+  {
+   "tag": "input",
+   "type": "checkbox",
+   "id": "consent",
+   "selector": "#consent",
+   "label": "I confirm the photo and details above are mine",
+   "value": null,
+   "visible": true,
+   "sensitive": false,
+   "rect": {
+    "x": 364,
+    "y": 590,
+    "width": 18,
+    "height": 18
+   }
+  },
+  {
+   "tag": "button",
+   "type": "submit",
+   "id": "submit-btn",
+   "selector": "#submit-btn",
+   "text": "Submit for verification",
+   "visible": true,
+   "sensitive": false,
+   "rect": {
+    "x": 364,
+    "y": 640,
+    "width": 552,
+    "height": 44
+   }
+  },
+  {
+   "tag": "input",
+   "type": "text",
+   "id": "audit-ref",
+   "selector": "#audit-ref",
+   "label": "Audit ref",
+   "value": "BV-0091",
+   "visible": false,
+   "sensitive": false,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+   }
+  }
+ ],
+ "faces": [
+  {
+   "box": {
+    "x": 402,
+    "y": 150,
+    "width": 84,
+    "height": 98
+   },
+   "note": "synthetic applicant photo \u2014 ground truth for the vision tier"
+  }
+ ]
+}

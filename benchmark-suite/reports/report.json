@@ -1,0 +1,110 @@
+{
+ "composite": 98.1,
+ "weights": {
+  "m1": 0.25,
+  "m2": 0.2,
+  "m3": 0.2,
+  "m4": 0.2,
+  "m5": 0.15
+ },
+ "metrics": {
+  "m1": {
+   "score": 100.0,
+   "f1": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "tp": 24,
+   "fp": 0,
+   "fn": 0
+  },
+  "m2": {
+   "score": 100.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "tp": 18,
+   "fp": 0,
+   "fn": 0,
+   "details": [
+    "login-form: TP=3 FP=0 FN=0",
+    "checkout-form: TP=8 FP=0 FN=0",
+    "kyc-portal: TP=7 FP=0 FN=0"
+   ]
+  },
+  "m3": {
+   "score": 90.63825266765257,
+   "meanIoU": 0.7919611703922791,
+   "meanCoverage": 1.0,
+   "overmaskRatio": 0.03635394456289979,
+   "penalty": 0.0,
+   "gatesOk": true
+  },
+  "m4": {
+   "score": 100.0,
+   "heapMB": 5.2,
+   "inferenceMs": 2.34,
+   "memScore": 1,
+   "latencyScore": 1
+  },
+  "m5": {
+   "score": 100,
+   "cycleMs": 6.8,
+   "perceptionMs": 2.34,
+   "redactionMs": 2.62,
+   "serverMs": 1.89,
+   "note": "captureVisibleTab + DOM serialize run in-browser; live numbers appear in the sidepanel telemetry bar"
+  }
+ },
+ "per_page": {
+  "m1": {
+   "login-form": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 6,
+    "fp": 0,
+    "fn": 0
+   },
+   "checkout-form": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 10,
+    "fp": 0,
+    "fn": 0
+   },
+   "kyc-portal": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 8,
+    "fp": 0,
+    "fn": 0
+   }
+  },
+  "m3": {
+   "login-form": {
+    "meanIoU": 0.778,
+    "applied": 3,
+    "gtRegions": 3,
+    "verification": true
+   },
+   "checkout-form": {
+    "meanIoU": 0.783,
+    "applied": 8,
+    "gtRegions": 8,
+    "verification": true
+   },
+   "kyc-portal": {
+    "meanIoU": 0.811,
+    "applied": 6,
+    "gtRegions": 6,
+    "verification": true
+   }
+  }
+ },
+ "server": {
+  "calls": 60,
+  "p95": 2.6903000252787024
+ }
+}

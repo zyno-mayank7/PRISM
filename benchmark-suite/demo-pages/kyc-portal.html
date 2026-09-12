@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BharatVerify — KYC verification</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .kyc-grid { display: grid; grid-template-columns: 172px 1fr; gap: 18px; }
+    .profile-photo {
+      width: 160px; height: 160px; border-radius: 10px; object-fit: cover;
+      border: 1px solid var(--line); background: #e2e8f0; display: block;
+    }
+    .photo-label { font-size: 12px; color: var(--muted); text-align: center; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <span class="brand"><span class="logo" style="background:linear-gradient(135deg,#f59e0b,#b45309)"></span>BharatVerify</span>
+    <span class="bench-flag">OBA BENCHMARK · kyc-portal</span>
+  </div>
+
+  <main>
+    <h1>Identity verification (KYC)</h1>
+    <p class="sub">Complete the profile below to activate your account. Verification takes 2 minutes.</p>
+
+    <form class="card" id="kycForm" novalidate>
+      <div class="kyc-grid">
+        <div>
+          <img class="profile-photo" id="photo" src="assets/kyc-face.png"
+               alt="Applicant photo" data-ob="photo" />
+          <p class="photo-label">Applicant photo</p>
+        </div>
+        <div>
+          <div class="row">
+            <label for="fullname">Full name (as per ID)</label>
+            <input id="fullname" name="fullname" type="text" autocomplete="name" />
+          </div>
+          <div class="row">
+            <label for="dob">Date of birth</label>
+            <input id="dob" name="dob" type="date" />
+          </div>
+          <div class="row">
+            <label for="idtype">ID document type</label>
+            <select id="idtype" name="idtype">
+              <option value="aadhaar" selected>Aadhaar</option>
+              <option value="ssn">Social Security Number</option>
+              <option value="pan">PAN card</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="idnum">Government ID number</label>
+        <input id="idnum" name="idnum" type="text" inputmode="numeric"
+               placeholder="XXXX XXXX XXXX" />
+        <p class="hint">Aadhaar is a 12-digit number; SSN is 9 digits (XXX-XX-XXXX).</p>
+      </div>
+
+      <div class="row">
+        <label for="address">Residential address</label>
+        <textarea id="address" name="address" rows="2" autocomplete="street-address"
+                  placeholder="House, street, city, PIN"></textarea>
+      </div>
+
+      <div class="row">
+        <label for="income">Annual income (optional)</label>
+        <input id="income" name="income" type="text" inputmode="numeric"
+               placeholder="e.g. 1200000" />
+      </div>
+
+      <div class="row check">
+        <input id="consent" name="consent" type="checkbox" />
+        <label for="consent" style="font-weight:400;margin:0">
+          I confirm the photo and details above are mine and consent to verification.
+        </label>
+      </div>
+
+      <button class="btn" id="submit-btn" type="submit">Submit for verification</button>
+
+      <div class="result" id="result"></div>
+
+      <div class="demo-creds">
+        Demo KYC data — <b>name</b> <code>Aarav Sharma</code>, <b>DOB</b> <code>1996-04-17</code>,
+        <b>ID</b> <code>2345 6789 0123</code>, <b>income</b> <code>1200000</code>.
+      </div>
+    </form>
+  </main>
+
+  <footer>Synthetic benchmark page — the photo is generated; every value is fake.</footer>
+
+  <script>
+    document.getElementById('kycForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var out = document.getElementById('result');
+      out.className = 'result';
+      var errors = [];
+      var name = document.getElementById('fullname').value.trim();
+      var dob = document.getElementById('dob').value;
+      var idnum = document.getElementById('idnum').value.replace(/\s/g, '');
+      var consent = document.getElementById('consent').checked;
+
+      if (name.length < 3) errors.push('Enter your full name as printed on the ID.');
+      if (!dob) errors.push('Date of birth is required.');
+      if (!/^\d{12}$/.test(idnum) && !/^\d{3}-\d{2}-\d{4}$/.test(idnum) && !/^[A-Z]{5}\d{4}[A-Z]$/.test(idnum)) {
+        errors.push('ID number format is not recognised.');
+      }
+      if (!document.getElementById('address').value.trim()) errors.push('Residential address is required.');
+      if (!consent) errors.push('Consent is required to submit.');
+
+      if (errors.length) {
+        out.className = 'result result--err';
+        out.innerHTML = '<b>Verification not submitted</b><ul>' + errors.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
+        return;
+      }
+      out.className = 'result result--ok';
+      out.innerHTML = '<b>KYC submitted</b> — reference BV-2026-1187. Results in 2 minutes.';
+    });
+  </script>
+</body>
+</html>
