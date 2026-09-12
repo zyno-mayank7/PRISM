@@ -30,7 +30,7 @@
 
   const EMAIL_CONTEXT = /\be[\s-]?mail|electronic\s*mail|\bemail\b/i;
   const PHONE_CONTEXT = /phone|mobile|contact(\s*number)?|\btel\b|whatsapp/i;
-  const NAME_CONTEXT  = /full\s*name|^name\b|first\s*name|last\s*name|surname|applicant\s*name|name\s*\(as\s*per/i;
+  const NAME_CONTEXT  = /full\s*name|\busername\b|\buser\s*name\b|\buser\s*id\b|^name\b|first\s*name|last\s*name|surname|applicant\s*name|handle\b/i;
   const ADDR_CONTEXT  = /address|street|city|town|\bzip\b|postal|locality|state\b/i;
   const CC_AUTOCOMPLETE = /^cc-(number|csc|exp|exp-month|exp-year|name|type)$/;
   const PHOTO_CONTEXT = /photo|avatar|profile[\s-]?(pic|image|photo)|selfie|user[\s-]?pic|applicant\s*image|headshot|portrait/i;

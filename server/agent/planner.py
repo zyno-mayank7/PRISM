@@ -65,7 +65,7 @@ SENSITIVE_FIELD_RX = [
 ]
 EMAIL_RX = re.compile(r"e[\s-]?mail", re.I)
 PHONE_RX = re.compile(r"phone|mobile|contact|whatsapp", re.I)
-NAME_RX = re.compile(r"full\s*name|^name\b|first\s*name|last\s*name|surname", re.I)
+NAME_RX = re.compile(r"full\s*name|\busername\b|\buser\s*name\b|\buser\s*id\b|^name\b|first\s*name|last\s*name|surname|handle\b", re.I)
 ADDR_RX = re.compile(r"address|street|locality|postal|\bzip\b|city|town|\bstate\b", re.I)
 CITY_RX = re.compile(r"city|town", re.I)
 ZIP_RX = re.compile(r"\bzip\b|postal\s*code|pin\s*code", re.I)
